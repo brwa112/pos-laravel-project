@@ -40,3 +40,4 @@ Route::resource('/cart',cartController::class)->except('create','show','index','
 Route::get('admin/sales',[SallesController::class,'index'])->name('sales');
 Route::get('admin/sales/show/{id}',[SallesController::class,'show'])->name('showSale');
 Route::get('admin/expire',[ExpireController::class,'index'])->name('expire');
+
