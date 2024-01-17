@@ -12,9 +12,12 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $data=Category::all();
+        if($request->wantsJson()){
+            return response()->json($data);
+        }
         return view('admin.category.index',compact('data'));
     }
 
@@ -35,6 +38,9 @@ class CategoryController extends Controller
         Category::create([
             'name'=>$request->name
         ]);
+        if ($request->wantsJson()) {
+            return response()->json('success');
+        }
         return redirect()->back();
     }
 
@@ -64,6 +70,9 @@ class CategoryController extends Controller
         $category->update([
             'name'=>$request->name
         ]);
+        if ($request->wantsJson()) {
+            return response()->json("updated");
+        }
         return redirect()->back();
     }
 
@@ -74,6 +83,7 @@ class CategoryController extends Controller
     {
         $category=Category::find($id);
         $category->delete();
+        return response()->json("deleted");
         return redirect()->back();
     }
 }
