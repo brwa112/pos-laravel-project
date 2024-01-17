@@ -57,14 +57,14 @@
                         </svg>
                     </div>
                 </th>
-                <th class="p-2 border-r cursor-pointer text-lg font-bold  text-gray-500">
+                {{-- <th class="p-2 border-r cursor-pointer text-lg font-bold  text-gray-500">
                     <div class="flex items-center justify-center">
                         جۆر
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                         </svg>
                     </div>
-                </th>
+                </th> --}}
                 <th class="p-2 border-r cursor-pointer text-lg font-bold  text-gray-500">
                     <div class="flex items-center justify-center">
                         نرخی کڕین
@@ -130,7 +130,10 @@
                     <td class="p-2 border-r">{{ $row->id }}</td>
                     <td class="p-2 border-r">{{ $row->barcode }}</td>
                     <td class="p-2 border-r">{{ $row->name }}</td>
+                    {{-- @if ($row->category->name)
                     <td class="p-2 border-r">{{ $row->category->name }}</td>
+
+                    @endif --}}
                     <td class="p-2 border-r">{{ $row->buy_price }} د.ع </td>
                     <td class="p-2 border-r">{{ $row->selling_price }} د.ع </td>
                     <td class="p-2 border-r">{{ $row->quantity }}</td>
