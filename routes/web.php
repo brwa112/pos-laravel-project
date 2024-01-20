@@ -5,6 +5,7 @@ use App\Models\cart;
 use App\Models\invoice;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PosController;
 use App\Http\Controllers\cartController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\admin\SallesController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\SupplierController;
+use App\Http\Controllers\admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,11 @@ use App\Http\Controllers\admin\SupplierController;
 // })->name('dashboard');
 
 Route::get('/',function(){
-    return view('welcome');
+    if (Auth::user()) {
+        return redirect()->route('home');
+    }else{
+        return view('welcome');
+    }
 });
 
 
@@ -42,6 +48,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::resource('admin/category',CategoryController::class)->except('create','show',);
     Route::resource('admin/product',ProductController::class)->except('show');
+    Route::resource('admin/user',UserController::class)->except('show');
     Route::resource('admin/supplier',SupplierController::class)->except('show');
     Route::resource('/pos',PosController::class)->except('create','show','destroy','update','edit');
     Route::resource('/cart',cartController::class)->except('create','show','index','update','edit');

@@ -7,6 +7,7 @@ use App\Models\order;
 use App\Models\invoice;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PosController extends Controller
 {
@@ -39,7 +40,7 @@ class PosController extends Controller
         $data=cart::all();
         if (count($data) > 0) {
             $invoice=invoice::create([
-                'casher'=>'admin',
+                'casher'=>Auth::user()->name,
                 'total'=>$request->total
             ]);
             foreach ($data as $value) {

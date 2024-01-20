@@ -22,7 +22,7 @@
         <div class="flex h-screen">
             <div class="basis-2/12 bg-gray-200 shadow-lg text-2xl flex flex-col gap-y-2 font-bold relative">
                 <div class="border-b-2 border-white h-14  mt-2 mb-2 flex items-center justify-center">
-                    <h1 class="font-sans">{{ Auth::user()->name }}</h1>
+                    <h1 class="font-sans">brwa</h1>
                     {{-- <div class="h-10 w-10 rounded-full bg-blue-500 ">
                     </div> --}}
                 </div>
@@ -34,6 +34,7 @@
                 <a href="{{ route('expire') }}" class="{{in_array(Route::currentRouteName(), ['expire'])?'bg-gradient-to-l from-[#6A64F1] to-transparent text-white':''}} border-b-2 border-white flex px-8 p-2 items-center gap-x-3">  <i class="fa-solid fa-list"></i> کاڵا بەسەرچوەکان</a>
                 <a href="{{ route('category.index') }}" class="{{in_array(Route::currentRouteName(), ['category.index'])?'bg-gradient-to-l from-[#6A64F1] to-transparent text-white':''}} border-b-2 border-white flex px-8 p-2 items-center gap-x-3"> <i class="fa-solid fa-layer-group"></i> جۆرەکان</a>
                 <a href="{{ route('supplier.index') }}" class="{{in_array(Route::currentRouteName(), ['supplier.index'])?'bg-gradient-to-l from-[#6A64F1] to-transparent text-white':''}} border-b-2 border-white flex px-8 p-2 items-center gap-x-3"> <i class="fa-solid fa-truck-field"></i> کۆمپانیاکان</a>
+                <a href="{{ route('user.index') }}" class="{{in_array(Route::currentRouteName(), ['user.index'])?'bg-gradient-to-l from-[#6A64F1] to-transparent text-white':''}} border-b-2 border-white flex px-8 p-2 items-center gap-x-3"> <i class="fa-regular fa-user"></i> بەکارهەنەر</a>
                 <form  id="logout-form" action="{{ route('logout') }}" method="POST" class="bottom-1 absolute px-8 p-2 ">
                     @csrf
                     <button>چونەدەرەوە</button>
